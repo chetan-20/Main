@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class TankSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject Tankprefab;
+
+
     void Start()
     {
-        
+        Instantiate(Tankprefab, transform.position,Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
+    
 }
