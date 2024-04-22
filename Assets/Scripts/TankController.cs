@@ -23,5 +23,9 @@ public class TankController
         Vector3 vector = new Vector3(0f, rotate * rotatespeed, 0f);
         Quaternion deltarotation = Quaternion.Euler(vector * Time.deltaTime);
         rb.MoveRotation(rb.rotation * deltarotation);
-    }    
+    }
+    public Tankmodel GetTankModel()
+    {
+        return this.tankModel;
+    }
 }
