@@ -6,13 +6,14 @@ public class TankController
     private TankView tankView;
     private Tankmodel tankModel;
     private Rigidbody rb;
-    public TankController(TankView tankView, Tankmodel tankModel)
+    public TankController(TankView tankview, Tankmodel tankmodel)
     {        
-        this.tankModel = tankModel;
-        this.tankView = GameObject.Instantiate<TankView>(tankView);        
-        this.tankView.SetTankController(this);
-        this.tankModel.SetTankController(this);
-        this.rb = this.tankView.GetTankRigidBody();
+        tankModel = tankmodel;
+        tankView = GameObject.Instantiate<TankView>(tankview);        
+        tankView.SetTankController(this);
+        tankModel.SetTankController(this);
+        this.rb = tankView.GetTankRigidBody();
+        tankView.ChangeColor(this.tankModel.color);
     }
     public void Move(float movement, float movementspeed)
     {       

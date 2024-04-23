@@ -3,10 +3,10 @@ using UnityEngine;
 public class TankView : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
+    [SerializeField]private MeshRenderer[] childs;
     private TankController tankController;
     private float movement;
-    private float rotation;
-
+    private float rotation;    
     private void Start()
     {
         GameObject cam = GameObject.Find("Main Camera");
@@ -26,8 +26,7 @@ public class TankView : MonoBehaviour
         }
     }
     private void Movement()
-    {
-        Debug.Log("4");
+    {        
         movement = Input.GetAxis("Vertical");
         rotation = Input.GetAxis("Horizontal");
     }
@@ -39,5 +38,13 @@ public class TankView : MonoBehaviour
     public Rigidbody GetTankRigidBody()
     {
         return rb;
+    }
+
+    public void ChangeColor(Material color)
+    {
+        for(int i = 0;i<childs.Length;i++)
+        {
+            childs[i].material = color;
+        }
     }
 }
