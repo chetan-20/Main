@@ -6,16 +6,9 @@ using UnityEngine;
 public class TankSpawner : MonoBehaviour
 {
     [SerializeField] private TankView tankView;
-
-
-    void Start()
+    public void CreateTank(int i)
     {
-        CreateTank();        
-    }
-
-    private void CreateTank()
-    {
-        Tankmodel tankModel = new Tankmodel(Tanks[1].tankType, Tanks[1].color, Tanks[1].movementspeed, Tanks[1].rotationspeed);
+        Tankmodel tankModel = new Tankmodel(Tanks[i].tankType, Tanks[i].color, Tanks[i].movementspeed, Tanks[i].rotationspeed);
         TankController tankController = new TankController(tankView,tankModel);        
     }
     
